@@ -1,0 +1,7 @@
+---
+import DetailPage from '../components/DetailPage.astro';
+import { C } from '../data/city';
+const c = C['terms'];
+---
+<DetailPage path="/terms/" title={c.title} description={c.desc} h1={c.h1} intro={c.intro} sections={c.sections} name={c.h1.charAt(0).toUpperCase() + c.h1.slice(1)} location={c.h1.startsWith('Privacy') ? 'Privacy' : 'Terms'} legal={true} />
+

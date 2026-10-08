@@ -1,0 +1,34 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from './Hero.astro';
+import { u } from '../lib/utils';
+import { faqSchema } from '../lib/seo';
+const fixHref = (p: string) => p.replace(/href="(\/[^"]*)"/g, (_m, h) => 'href="' + u(h) + '"');
+const { path, title, description, h1, intro, lead = [], sections = [], faqs = [], sources = [], related = [], parent, name, location, service = false, legal = false } = Astro.props;
+const crumbs = [...(parent ? [{ name: parent.name, path: parent.path }] : []), { name, path }];
+const heroCrumbs = crumbs.map((c) => ({ href: c.path, label: c.name }));
+---
+<Base noFormBand={true} noCallout={legal} title={title} description={description} path={path} crumbs={crumbs} service={service} extraSchema={faqs.length ? [faqSchema(faqs)] : []}>
+  <Hero headline={h1} intro={intro} location={location ?? name} crumbs={heroCrumbs} />
+  <section class="content-section"><div class="content-inner prose">
+    {path.includes("/guides/") && <table class="comparison"><caption>What each step can establish</caption><thead><tr><th>Step</th><th>Purpose</th><th>Limit</th></tr></thead><tbody><tr><td>Inspection</td><td>Locate the visible problem and check pipe condition</td><td>Does not itself fix the problem</td></tr><tr><td>Cleaning</td><td>Clear buildup or an obstruction from the line</td><td>Does not rebuild damaged pipe</td></tr><tr><td>Repair</td><td>Fix or replace the damaged section</td><td>Choice depends on the actual line</td></tr></tbody></table>}
+    {lead.map((p) => <p class="lead" set:html={p} />)}
+    {sections.map((s) => (<>
+      <h2 class="section-title">{s.h}</h2>
+      {s.ps.map((p) => <p set:html={fixHref(p)} />)}
+    </>))}
+    {related.length > 0 && (
+      <div class="related-links">
+        {related.map((r) => <a class="pill" href={u(r.href)}>{r.label}</a>)}
+      </div>
+    )}
+  </div></section>
+  {faqs.length > 0 && (
+    <section class="content-section content-section-alt"><div class="content-inner prose">
+      <h2 class="section-title">Questions about this service</h2>
+      <div class="content-list">{faqs.map((f) => <article class="faq-row"><h3>{f.q}</h3><p>{f.a}</p></article>)}</div>
+
+    </div></section>
+  )}
+  </Base>
+

@@ -1,0 +1,9 @@
+---
+import { business } from '../lib/site';
+import { city } from '../data/city';
+const { title = city.ui.calloutTitle, text = city.ui.calloutText } = Astro.props;
+---
+<section class="callout"><div class="callout-inner">
+  <div><h2>{title}</h2><p>{text}</p></div>
+  <a class="button-primary" href={business.phoneHref}>Call {business.phoneDisplay}</a>
+</div></section>

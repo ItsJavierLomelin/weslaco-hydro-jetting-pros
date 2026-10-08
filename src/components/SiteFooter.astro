@@ -1,0 +1,36 @@
+---
+import { business, serviceLinks, hoodLinks, guideLinks } from '../lib/site';
+import { u } from '../lib/utils';
+---
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand-block">
+        <div class="footer-brand">{business.name}</div>
+        <p class="footer-blurb">{business.description}</p>
+      </div>
+      <div>
+        <h3>Services</h3>
+        <div class="footer-links">{serviceLinks.map((l) => <a href={u(l.href)}>{l.label}</a>)}</div>
+      </div>
+      <div>
+        <h3>Guides</h3>
+        <div class="footer-links">{guideLinks.map((a) => <a href={u(a.href)}>{a.label}</a>)}</div>
+        <h3 style="margin-top:28px">Neighborhoods</h3>
+        <div class="footer-links">{hoodLinks.map((a) => <a href={u(a.href)}>{a.label}</a>)}</div>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <div class="footer-contact">
+          <a href={business.phoneHref}>{business.phoneDisplay}</a>
+          <span>{business.city}, {business.regionName}</span>
+          <a href={u('/contact/')}>Request service</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; {new Date().getFullYear()} {business.name}</span>
+      <div class="legal-links"><a href={u('/privacy/')}>Privacy</a><a href={u('/terms/')}>Terms</a></div>
+    </div>
+  </div>
+</footer>

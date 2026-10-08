@@ -1,0 +1,66 @@
+---
+import Logo from './Logo.astro';
+import { navLinks, business } from '../lib/site';
+import { u } from '../lib/utils';
+---
+<header class="site-header">
+  <div class="header-inner">
+    <Logo />
+    <nav class="desktop-nav" aria-label="Main navigation">
+      {navLinks.map((l) => (
+        <div class="nav-item">
+          <a class:list={['nav-parent', { 'has-dropdown': 'children' in l }]} href={u(l.href)}>{l.label}{'children' in l && <svg class="nav-chevron" aria-hidden="true" focusable="false" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="m2 4 4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg>}</a>
+          {'children' in l && (
+            <div class="nav-sub"><div class="nav-sub-inner">
+              {l.children.map((a) => <a href={u(a.href)}>{a.label}</a>)}
+            </div></div>
+          )}
+        </div>
+      ))}
+    </nav>
+    <div class="header-actions">
+      <a class="header-phone" href={business.phoneHref}><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.4 15.4 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.9.6.6 0 1 .4 1 1v3.5c0 .6-.4 1-1 1C10.8 21 3 13.2 3 3.6c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.4.2 2.7.6 3.9.1.4 0 .8-.3 1.1l-2.2 2.2z"/></svg>{business.phoneDisplay}</a>
+      <a class="header-cta" href={u('/contact/')}>Request Service</a>
+    </div>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-navigation" data-menu-toggle aria-label="Toggle navigation"><svg class="mobile-menu-hamburger" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18" /></svg><svg class="mobile-menu-x" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18" /></svg></button>
+  </div>
+  <nav class="mobile-nav" id="mobile-navigation" aria-label="Mobile navigation" hidden>
+    {navLinks.map((l) => (
+      <>
+        <a class:list={['nav-parent', { 'has-dropdown': 'children' in l }]} href={u(l.href)}>{l.label}{'children' in l && <svg class="nav-chevron" aria-hidden="true" focusable="false" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="m2 4 4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg>}</a>
+        {'children' in l && <div class="mobile-sub">{l.children.map((a) => <a href={u(a.href)}>{a.label}</a>)}</div>}
+      </>
+    ))}
+    <a class="mobile-phone" href={business.phoneHref}>Call {business.phoneDisplay}</a>
+    <a class="mobile-phone" href={u('/contact/')}>Request Service</a>
+  </nav>
+</header>
+<script>
+  const btn = document.querySelector('[data-menu-toggle]');
+  const nav = document.getElementById('mobile-navigation');
+  btn?.addEventListener('click', () => {
+    const open = nav.hasAttribute('hidden');
+    if (open) nav.removeAttribute('hidden'); else nav.setAttribute('hidden', '');
+    btn.setAttribute('aria-expanded', String(open));
+  });
+</script>
+
+<style>
+.nav-parent.has-dropdown { display:inline-flex; align-items:center; gap:6px; }
+.nav-chevron { display:inline-block; flex:none; vertical-align:middle; width:12px; height:12px; }
+</style>
+
+<style is:global>
+/* Mobile menu sits above fixed call CTAs. Icons track aria-expanded. */
+header:has([aria-expanded="true"]){z-index:2001!important}
+.mobile-menu-x{display:none!important}
+[aria-expanded="true"]>.mobile-menu-hamburger{display:none!important}
+[aria-expanded="true"]>.mobile-menu-x{display:block!important}
+.mobile-menu-hamburger,.mobile-menu-x{flex:none;vertical-align:middle}
+/* Menu icons: no square around hamburger/X. */
+button[data-menu-toggle],button[data-menu],button[data-burger],button[data-mobile-menu],button.menu,button.menu-toggle,button.menu-btn,button.burger,.menu-toggle,.menu-btn,.burger{border:0!important;border-radius:0!important;box-shadow:none!important;background:transparent!important;outline:0}
+button[data-menu-toggle]:focus-visible,button[data-menu]:focus-visible,button[data-mobile-menu]:focus-visible,button[data-burger]:focus-visible,button.menu:focus-visible,button.menu-toggle:focus-visible,button.menu-btn:focus-visible,button.burger:focus-visible{outline:2px solid currentColor!important;outline-offset:4px}
+button[data-menu-toggle],button[data-menu],button[data-burger],button[data-mobile-menu],button.menu{min-width:44px;min-height:44px;align-items:center;justify-content:center}
+.mobile-nav,.sat-mobile-panel,#mobile-menu,.mobile-panel{max-height:calc(100dvh - 100px);overflow-y:auto;overscroll-behavior:contain}
+@media(max-width:1100px){header:has([aria-expanded="true"]){position:sticky;top:0}}
+</style>

@@ -1,0 +1,40 @@
+---
+import RequestForm from './RequestForm.astro';
+import { pageImage } from '../lib/pageImages';
+import { business } from '../lib/site';
+import { city } from '../data/city';
+import { u } from '../lib/utils';
+const { headline, intro, location, crumbs = [], tiles = [], eyebrow = city.ui.heroEyebrow, withForm = true } = Astro.props;
+const showImage = !withForm && !['Privacy', 'Terms'].includes(location);
+const img = pageImage(headline);
+---
+<section class="hero" data-parallax-stage>
+  <div class={showImage || withForm ? 'hero-inner' : 'hero-inner hero-inner--text'}>
+    <div class="fx-circle fx-fill fx-float" data-depth="16" style="width:340px;height:340px;right:-120px;top:-140px;opacity:.12" aria-hidden="true"></div>
+    <div class="fx-circle fx-ring fx-float-slow" data-depth="30" style="width:110px;height:110px;left:38%;bottom:-50px" aria-hidden="true"></div>
+    <div class="hero-copy-col reveal">
+      {crumbs.length > 0 && (
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href={u('/')}>Home</a>
+          {crumbs.map((c, i) => <><span aria-hidden="true">/</span>{i < crumbs.length - 1 ? <a href={u(c.href)}>{c.label}</a> : <span>{c.label}</span>}</>)}
+        </nav>
+      )}
+      <p class="chip">{eyebrow}</p>
+      <h1>{headline}</h1>
+      <p class="hero-copy">{intro}</p>
+      <div class="hero-cta"><a class="button-primary" href={business.phoneHref}>Call {business.phoneDisplay}</a><a class="link-underline" href="#request-service">Request a call</a></div>
+      {tiles.length > 0 && <div class="tile-row">{tiles.map((t) => <div class="tile"><strong>{t.big}</strong><span>{t.small}</span></div>)}</div>}
+    </div>
+    {withForm && (
+      <div class="hero-form-wrap reveal" style="--reveal-delay:.12s">
+        <div class="fx-circle fx-dot fx-float" data-depth="26" style="width:20px;height:20px;left:-30px;top:10%" aria-hidden="true"></div>
+        <RequestForm location={location ?? 'Page'} />
+      </div>
+    )}
+    {showImage && (
+      <figure class="hero-photo reveal" style="--reveal-delay:.12s">
+        <img src={u(img.src)} alt={img.alt} width="1200" height="896" loading="eager" decoding="async" fetchpriority="high" />
+      </figure>
+    )}
+  </div>
+</section>

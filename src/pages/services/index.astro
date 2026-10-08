@@ -1,0 +1,15 @@
+---
+import Base from '../../layouts/Base.astro';
+import Hero from '../../components/Hero.astro';
+import { city, services } from '../../data/city';
+import { u } from '../../lib/utils';
+const c = city.indexPages.services;
+---
+<Base noFormBand={true} title={c.title} description={c.desc} path="/services/" crumbs={[{ name: 'Services', path: '/services/' }]}>
+  <Hero headline={c.h1} intro={c.intro} location="Services" crumbs={[{ href: '/services/', label: 'Services' }]} />
+  <section class="content-section"><div class="content-inner">
+    <div class="card-grid">
+      {services.map((s, i) => <article class="card"><p class="eyebrow">Service {String(i + 1).padStart(2, '0')}</p><h3><a href={u(`/services/${s.slug}/`)}>{s.name}</a></h3><p>{s.blurb}</p></article>)}
+    </div>
+  </div></section>
+</Base>

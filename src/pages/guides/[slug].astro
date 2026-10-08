@@ -1,0 +1,9 @@
+---
+import DetailPage from '../../components/DetailPage.astro';
+import { C, guides } from '../../data/city';
+export function getStaticPaths() { return guides.map((g) => ({ params: { slug: g.slug }, props: { g } })); }
+const { g } = Astro.props;
+const c = C[g.slug];
+const related = [{ href: '/services/', label: 'Our services' }, ...guides.filter((x) => x.slug !== g.slug).map((x) => ({ href: `/guides/${x.slug}/`, label: x.name }))];
+---
+<DetailPage path={`/guides/${g.slug}/`} title={c.title} description={c.desc} h1={c.h1} intro={c.intro} lead={c.lead} sections={c.sections} faqs={c.faqs} related={related} parent={{ name: 'Guides', path: '/guides/' }} name={g.name} />

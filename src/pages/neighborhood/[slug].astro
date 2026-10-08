@@ -1,0 +1,22 @@
+---
+import Base from '../../layouts/Base.astro';
+import Hero from '../../components/Hero.astro';
+import RequestForm from '../../components/RequestForm.astro';
+import NeighborhoodBody from '../../components/NeighborhoodBody.astro';
+import { city, neighborhoods, services } from '../../data/city';
+import { business } from '../../lib/site';
+import { faqSchema } from '../../lib/seo';
+export function getStaticPaths() { return neighborhoods.map(n => ({params:{slug:n.slug},props:{n}})); }
+const { n } = Astro.props;
+const path = `/neighborhood/${n.slug}/`;
+const crumbs = [{name:'Neighborhoods',path:'/neighborhood/'},{name:n.name,path}];
+const heroCrumbs = crumbs.map(c => ({href:c.path,label:c.name}));
+const nhServices = services.map(s => ({ path: `/services/${s.slug}/`, name: s.shortName, note: s.note }));
+const schema = faqSchema(n.faqs);
+---
+<Base title={n.title} description={n.description} path={path} crumbs={crumbs} service={true} extraSchema={[schema]} noFormBand={true}>
+<div class="nh-hero-shell"><Hero headline={n.h1} intro={n.hero} location={n.name} crumbs={heroCrumbs} withForm={false} /><div class="nh-hero-form"><RequestForm location={n.name} /></div></div>
+<NeighborhoodBody n={n} all={neighborhoods} services={nhServices} phoneHref={business.phoneHref} phoneDisplay={business.phoneDisplay} />
+</Base>
+
+<style is:global>.nh-hero-shell{display:grid;grid-template-columns:minmax(0,11fr) minmax(400px,9fr);max-width:1280px;margin:auto;align-items:start}.nh-hero-shell .hero-inner{grid-template-columns:1fr;padding:56px 24px}.nh-hero-shell .hero-visual{display:none}.nh-hero-form{padding:56px 24px}.nh-hero-form .form-card{width:100%;max-width:100%}@media(max-width:1000px){.nh-hero-shell{grid-template-columns:1fr}.nh-hero-form{padding:0 24px 44px}}</style>

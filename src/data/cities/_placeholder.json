@@ -1,0 +1,453 @@
+{
+  "site": {
+    "city": "{City}",
+    "region": "{ST}",
+    "regionName": "{State}",
+    "country": "US",
+    "niche": "{Main Service}",
+    "brand": "{Biz Name}",
+    "origin": "https://template.prosapp.site",
+    "phoneDisplay": "(877) 761-0283",
+    "phoneHref": "+18777610283",
+    "ga4MeasurementId": "",
+    "airchattyTrackingId": "{tracker id}",
+    "businessDescription": "{One sentence: what {Biz Name} offers in {City, ST}.}",
+    "orgDescription": "{One schema.org sentence: what {Biz Name} is, plus the availability/suitability confirmation note.}",
+    "llmsSummary": "{Two sentences for llms.txt: what {Biz Name} offers in {City, ST}, the phone number, and the no-guarantee note.}",
+    "schemaServiceType": "{Main Service}"
+  },
+  "ui": {
+    "heroEyebrow": "{City, ST} service line",
+    "statusStrip": "{Main Service} information and requests for {City, ST}",
+    "formBandTitle": "{Form band heading, e.g. Tell us what the drain is doing.}",
+    "formBandText": "{One or two sentences above the form: what details to share. Keep the note that a request is not an appointment.}",
+    "calloutTitle": "{Bottom call-to-action heading}",
+    "calloutText": "{One sentence next to the call button}",
+    "successNiche": "{main service}"
+  },
+  "home": {
+    "h1": "{Homepage headline for {Biz Name}, unique to {City, ST}. From the headlines doc, not a formula.}",
+    "intro": "{2-4 sentences of genuinely local homepage copy: real housing stock, real drain situations in {City}. No city-name swap.}",
+    "lead": [],
+    "sections": [
+      {
+        "h": "{Home section 1 heading: introduces the services}",
+        "ps": [
+          "{One sentence framing the {City} service lineup}"
+        ]
+      },
+      {
+        "h": "{Home section 2 heading: before-you-book research}",
+        "ps": [
+          "{Local research paragraph with inline authority link, written for {City}. Permits only if research shows this service requires one here.}"
+        ]
+      },
+      {
+        "h": "{Home section 3 heading: local area pages}",
+        "ps": [
+          "{One line about the neighborhood pages}"
+        ]
+      },
+      {
+        "h": "{Home section 4 heading: how the work goes}",
+        "ps": [
+          "{One or two sentences}"
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "{Homepage FAQ 1}",
+        "a": "{Answer, plain and honest}"
+      },
+      {
+        "q": "{Homepage FAQ 2}",
+        "a": "{Answer}"
+      },
+      {
+        "q": "{Homepage FAQ 3}",
+        "a": "{Answer}"
+      },
+      {
+        "q": "{Homepage FAQ 4}",
+        "a": "{Answer}"
+      }
+    ],
+    "title": "{Homepage title tag | {Biz Name}}",
+    "desc": "{Homepage meta description}",
+    "steps": [
+      {
+        "t": "{Step 1}",
+        "d": "{One sentence}"
+      },
+      {
+        "t": "{Step 2}",
+        "d": "{One sentence}"
+      },
+      {
+        "t": "{Step 3}",
+        "d": "{One sentence}"
+      }
+    ],
+    "bandText": "{One or two sentences in the dark band next to the neighborhood pills}",
+    "dispatchTitle": "{Small call card heading}",
+    "dispatchText": "{Small call card text}",
+    "faqHeading": "{Homepage FAQ section heading}",
+    "footerLinksHtml": "{One closing sentence with inline links to the guides and top services}"
+  },
+  "services": [
+    {
+      "slug": "service-one",
+      "name": "{Service One}",
+      "shortName": "{Service One, short}",
+      "note": "{One short phrase for the neighborhood card}"
+    },
+    {
+      "slug": "service-two",
+      "name": "{Service Two}",
+      "shortName": "{Service Two, short}",
+      "note": "{One short phrase}"
+    },
+    {
+      "slug": "service-three",
+      "name": "{Service Three}",
+      "shortName": "{Service Three, short}",
+      "note": "{One short phrase}"
+    }
+  ],
+  "guides": [
+    {
+      "slug": "guide-one",
+      "name": "{Guide One}"
+    },
+    {
+      "slug": "guide-two",
+      "name": "{Guide Two}"
+    }
+  ],
+  "indexPages": {
+    "services": {
+      "title": "{Services hub title tag}",
+      "desc": "{Services hub meta description}",
+      "h1": "{Services hub H1}",
+      "intro": "{One sentence}"
+    },
+    "guides": {
+      "title": "{Guides hub title tag}",
+      "desc": "{Guides hub meta description}",
+      "h1": "{Guides hub H1}",
+      "intro": "{One sentence}"
+    },
+    "neighborhoods": {
+      "title": "{Neighborhoods hub title tag}",
+      "desc": "{Neighborhoods hub meta description}",
+      "h1": "{Neighborhoods hub H1}",
+      "intro": "{One sentence}"
+    },
+    "contact": {
+      "title": "{Contact title tag}",
+      "desc": "{Contact meta description}",
+      "h1": "{Contact H1}",
+      "intro": "{One or two sentences}"
+    }
+  },
+  "pages": {
+    "service-one": {
+      "h1": "{Service One page headline, unique to {City, ST}. From the headlines doc.}",
+      "intro": "{2-4 sentences, specific to this service and {City}}",
+      "lead": [],
+      "sections": [
+        {
+          "h": "{Section heading as a real question}",
+          "ps": [
+            "{Paragraph with an inline authority link where a source backs the claim}"
+          ]
+        },
+        {
+          "h": "{What should {City} homeowners check first?}",
+          "ps": [
+            "{Local paragraph, researched for {City}}",
+            "{Second paragraph}"
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "q": "{FAQ}",
+          "a": "{Answer}"
+        },
+        {
+          "q": "{FAQ}",
+          "a": "{Answer}"
+        },
+        {
+          "q": "{FAQ}",
+          "a": "{Answer}"
+        },
+        {
+          "q": "{FAQ. Permit question only if research shows {Service One} requires a permit in {City}.}",
+          "a": "{Answer}"
+        }
+      ],
+      "title": "{Title tag}",
+      "desc": "{Meta description}"
+    },
+    "service-two": {
+      "h1": "{Service Two page headline, unique to {City, ST}. From the headlines doc.}",
+      "intro": "{Intro}",
+      "lead": [],
+      "sections": [
+        {
+          "h": "{Heading}",
+          "ps": [
+            "{Paragraph}"
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "q": "{FAQ}",
+          "a": "{Answer}"
+        }
+      ],
+      "title": "{Title tag}",
+      "desc": "{Meta description}"
+    },
+    "service-three": {
+      "h1": "{Service Three page headline, unique to {City, ST}. From the headlines doc.}",
+      "intro": "{Intro}",
+      "lead": [],
+      "sections": [
+        {
+          "h": "{Heading}",
+          "ps": [
+            "{Paragraph}"
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "q": "{FAQ}",
+          "a": "{Answer}"
+        }
+      ],
+      "title": "{Title tag}",
+      "desc": "{Meta description}"
+    },
+    "guide-one": {
+      "h1": "{Guide headline}",
+      "intro": "{Intro}",
+      "lead": [],
+      "sections": [
+        {
+          "h": "{Heading}",
+          "ps": [
+            "{Paragraph}"
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "q": "{FAQ}",
+          "a": "{Answer}"
+        }
+      ],
+      "title": "{Title tag}",
+      "desc": "{Meta description}"
+    },
+    "guide-two": {
+      "h1": "{Guide headline}",
+      "intro": "{Intro}",
+      "lead": [],
+      "sections": [
+        {
+          "h": "{Heading}",
+          "ps": [
+            "{Paragraph}"
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "q": "{FAQ}",
+          "a": "{Answer}"
+        }
+      ],
+      "title": "{Title tag}",
+      "desc": "{Meta description}"
+    },
+    "privacy": {
+      "h1": "Privacy Policy",
+      "intro": "{Launch-ready privacy copy for this site. No placeholder contacts.}",
+      "lead": [],
+      "sections": [
+        {
+          "h": "{Heading}",
+          "ps": [
+            "{Paragraph}"
+          ]
+        }
+      ],
+      "faqs": [],
+      "title": "{Title tag}",
+      "desc": "{Meta description}"
+    },
+    "terms": {
+      "h1": "Terms of Service",
+      "intro": "{Launch-ready terms copy. No placeholder contacts.}",
+      "lead": [],
+      "sections": [
+        {
+          "h": "{Heading}",
+          "ps": [
+            "{Paragraph}"
+          ]
+        }
+      ],
+      "faqs": [],
+      "title": "{Title tag}",
+      "desc": "{Meta description}"
+    }
+  },
+  "neighborhoods": [
+    {
+      "slug": "location-one",
+      "name": "{Location One}",
+      "h1": "{Main Service} in {Location One}, {City, ST}",
+      "title": "{Title tag}",
+      "description": "{Meta description}",
+      "intro": "{2-3 sentences on the card: real, researched local context for {Location One}. Helpful like the Topeka pages, not a stock sentence.}",
+      "hero": "{2-4 sentences of hero copy, genuinely about {Location One}: founding, housing eras, typical lines. Not generic.}",
+      "body": [
+        {
+          "h": "{Section heading as a real local question}",
+          "ps": [
+            "{Researched local paragraph}",
+            "{Second paragraph}"
+          ]
+        },
+        {
+          "h": "{Section heading}",
+          "ps": [
+            "{Paragraph}"
+          ]
+        },
+        {
+          "h": "{Section heading}",
+          "ps": [
+            "{Paragraph}"
+          ]
+        }
+      ],
+      "steps": [
+        [
+          "{Step 1}",
+          "{One sentence}"
+        ],
+        [
+          "{Step 2}",
+          "{One sentence}"
+        ],
+        [
+          "{Step 3}",
+          "{One sentence}"
+        ],
+        [
+          "{Step 4}",
+          "{One sentence}"
+        ]
+      ],
+      "mapIntro": "{One sentence above the map}",
+      "mapLabel": "{Location One} area",
+      "mapSrc": "{Google Maps embed URL for {Location One}}",
+      "faqs": [
+        {
+          "q": "{FAQ about {Location One}}",
+          "a": "{Answer}"
+        },
+        {
+          "q": "{FAQ}",
+          "a": "{Answer}"
+        },
+        {
+          "q": "{FAQ}",
+          "a": "{Answer}"
+        },
+        {
+          "q": "{FAQ}",
+          "a": "{Answer}"
+        }
+      ],
+      "cta": "{Closing heading for {Location One}}",
+      "ctaP": "{One sentence next to the buttons}"
+    },
+    {
+      "slug": "location-two",
+      "name": "{Location Two}",
+      "h1": "{Main Service} in {Location Two}, {City, ST}",
+      "title": "{Title tag}",
+      "description": "{Meta description}",
+      "intro": "{Card intro}",
+      "hero": "{Hero copy}",
+      "body": [
+        {
+          "h": "{Heading}",
+          "ps": [
+            "{Paragraph}"
+          ]
+        }
+      ],
+      "steps": [
+        [
+          "{Step 1}",
+          "{One sentence}"
+        ]
+      ],
+      "mapIntro": "{One sentence}",
+      "mapLabel": "{Location Two} area",
+      "mapSrc": "{Google Maps embed URL}",
+      "faqs": [
+        {
+          "q": "{FAQ}",
+          "a": "{Answer}"
+        }
+      ],
+      "cta": "{Closing heading}",
+      "ctaP": "{One sentence}"
+    },
+    {
+      "slug": "location-three",
+      "name": "{Location Three}",
+      "h1": "{Main Service} in {Location Three}, {City, ST}",
+      "title": "{Title tag}",
+      "description": "{Meta description}",
+      "intro": "{Card intro}",
+      "hero": "{Hero copy}",
+      "body": [
+        {
+          "h": "{Heading}",
+          "ps": [
+            "{Paragraph}"
+          ]
+        }
+      ],
+      "steps": [
+        [
+          "{Step 1}",
+          "{One sentence}"
+        ]
+      ],
+      "mapIntro": "{One sentence}",
+      "mapLabel": "{Location Three} area",
+      "mapSrc": "{Google Maps embed URL}",
+      "faqs": [
+        {
+          "q": "{FAQ}",
+          "a": "{Answer}"
+        }
+      ],
+      "cta": "{Closing heading}",
+      "ctaP": "{One sentence}"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+---
+import { city } from '../data/city';
+import { business } from '../lib/site';
+const { location = 'Homepage' } = Astro.props;
+const formName = `${city.site.brand.replace(/\s+/g, '-')}-Form`;
+---
+<aside class="form-card" aria-label="Request service form" id="request-service">
+  <div class="form-card-head"><div><h2>Service request form</h2><p>Share the details and we will follow up.</p></div></div>
+  <form class="request-form" data-lead-form data-niche={city.ui.successNiche} id={formName} name={formName}>
+    <input class="honeypot" aria-hidden="true" tabindex="-1" type="text" readonly name="page_site" value={business.name} />
+    <input class="honeypot" aria-hidden="true" tabindex="-1" type="text" readonly name="page_location" value={location} />
+    <input class="honeypot" aria-hidden="true" tabindex="-1" type="text" readonly name="page_code" value="HSP" />
+    <div class="field"><label for="rf-name">Your name</label><input id="rf-name" name="full_name" type="text" autocomplete="name" placeholder="Your name" required /></div>
+    <div class="field"><label for="rf-phone">Phone number</label><input id="rf-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Best number to reach you" required /></div>
+    <div class="field"><label for="rf-email">Email address</label><input id="rf-email" name="email" type="email" autocomplete="email" placeholder="Email address" /></div>
+    <div class="field full"><label for="rf-message">What is happening?</label><textarea id="rf-message" name="page_details" placeholder="What is happening at the property?" required></textarea></div>
+    <label aria-hidden="true" class="honeypot">Leave this blank<input name="website" tabindex="-1" autocomplete="off" /></label>
+    <div class="form-status" role="status" aria-live="polite"></div>
+    <button class="button-primary form-submit" type="submit">Request service</button>
+  </form>
+</aside>
